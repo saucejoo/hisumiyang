@@ -1,0 +1,160 @@
+/* =====================================================
+   FLOATING BANNER
+===================================================== */
+
+.bottom-banner{
+
+    position: fixed;
+
+    left: 0;
+    bottom: 2.8vh;
+
+    width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    z-index: 99999;
+
+    pointer-events: none;
+
+    will-change: transform, opacity;
+
+    opacity: 0;
+
+}
+
+/* 위 텍스트 */
+
+.banner-title{
+
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    margin-bottom: 5px;
+
+    color: white;
+
+    font-size: 14px ; /*clamp(12px, 1vw, 20px);*/
+
+    letter-spacing: 0.05em;
+
+    
+
+}
+
+/* 검정 사각형 */
+
+.banner-body{
+ position: relative;
+    width: 100%;
+    aspect-ratio: 14 / 5;
+    background: lightskyblue;
+
+    /* 자동차 몸통만 마우스 감지 (배너 전체는 pointer-events:none) */
+    pointer-events: auto;
+    cursor: pointer;
+
+    clip-path: polygon(
+        0 0,
+        calc(100% - 20px) 0,
+        calc(100% - 20px) 20px,
+        100% 20px,
+        100% 100%,
+        0 100%
+    );
+
+}
+
+/* 이메일 (클릭 시 복사) */
+
+.banner-email{
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.banner-email:hover{
+    color: #4a4a4a;
+}
+
+/* 복사 완료 안내 */
+
+.banner-copied{
+    position: absolute;
+    left: 50%;
+    top: -22px;
+    transform: translateX(-50%);
+    background: #333;
+    color: #fff;
+    font-size: 12px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.banner-copied.show{
+    opacity: 1;
+}
+
+/* 흰색 텍스트 */
+
+.banner-text{
+
+ 
+    position: absolute;
+
+    left: 6%;
+    top: 35%;
+
+    transform: translateY(-50%);
+
+    color: #8c8b8c;
+
+   
+
+    line-height: 1;
+
+    text-align: left;
+
+    white-space: normal;
+
+    width: 84%;
+
+
+    font-size: 16px/*clamp(16px, 2vw, 36px);*/
+
+}
+
+/* 바퀴 */
+
+.wheel{
+    position: absolute;
+    width: 20%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: greenyellow;
+
+    bottom: 0;
+    transform: translateY(50%);
+}
+
+/* 왼쪽 바퀴 */
+
+.wheel-left{
+
+    left: 6%;
+
+}
+
+/* 오른쪽 바퀴 */
+
+.wheel-right{
+
+    right: 6%;
+
+}
