@@ -12,3 +12,6 @@ video
 !.dev.vars.example
 .env*
 !.env.example
+
+# 배포 앱 (각자 로컬에만 보관)
+deploy.app
