@@ -632,7 +632,7 @@ main {
   .sidebar{
     order: 2;
     width:100%;
-    padding:0.5rem;
+    padding:0 0.5rem 0.5rem 0.5rem;   /* 위 패딩 제거 → EDUCATION~Works 간격을 다른 섹션과 통일 */
     overflow: visible;
     height: auto;
   }
@@ -641,9 +641,9 @@ main {
     grid-row: 1;
     height: auto;
     overflow: visible;
-    
+
     order: 1;
-    padding:0.5rem;
+    padding:0.5rem 0.5rem 0 0.5rem;   /* 아래 패딩 제거 → EDUCATION~Works 간격을 다른 섹션과 통일 */
   }
 
 
@@ -658,35 +658,40 @@ main {
 /* ========================= */
 /* Independent Column Scroll */
 /* ========================= */
+/* 데스크톱(3컬럼)에서만 컬럼별 독립 스크롤 적용.
+   901px 이상으로 한정해야 모바일 미디어쿼리를 덮어쓰지 않음. */
+@media (min-width: 901px){
 
-html,
-body{
-    height:100%;
-    overflow:hidden;   /* 브라우저 전체 스크롤 제거 */
-}
+    html,
+    body{
+        height:100%;
+        overflow:hidden;   /* 브라우저 전체 스크롤 제거 */
+    }
 
-.layout{
-    height:100vh;
-}
+    .layout{
+        height:100vh;
+    }
 
-.sidebar,
-.content,
-.empty{
-    height:calc(100vh - 2rem);   /* layout의 padding(1rem × 2) 제외 */
-    overflow-y:auto;
-}
+    .sidebar,
+    .content,
+    .empty{
+        height:calc(100vh - 2rem);   /* layout의 padding(1rem × 2) 제외 */
+        overflow-y:auto;
+    }
 
-/* 스크롤바 숨기기 (선택사항) */
-.sidebar::-webkit-scrollbar,
-.content::-webkit-scrollbar,
-.empty::-webkit-scrollbar{
-    display:none;
-}
+    /* 스크롤바 숨기기 (선택사항) */
+    .sidebar::-webkit-scrollbar,
+    .content::-webkit-scrollbar,
+    .empty::-webkit-scrollbar{
+        display:none;
+    }
 
-.sidebar,
-.content,
-.empty{
-    scrollbar-width:none; /* Firefox */
+    .sidebar,
+    .content,
+    .empty{
+        scrollbar-width:none; /* Firefox */
+    }
+
 }
 
 /***************************************************************** 방명록 */
